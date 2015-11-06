@@ -1,5 +1,5 @@
-FROM dockerfile/ubuntu
-MAINTAINER Ankur Chauhan  <ankur@malloc64.com>
+FROM ubuntu
+MAINTAINER Neal Mi  <zhongwang.mi@kanche.com>
 
 # Install TokuMX
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key 505A7412
