@@ -2,11 +2,11 @@ FROM ubuntu
 MAINTAINER Neal Mi  <zhongwang.mi@kanche.com>
 
 # Install TokuMX
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key 505A7412
-RUN echo "deb [arch=amd64] http://s3.amazonaws.com/tokumx-debs $(lsb_release -cs) main" > /etc/apt/sources.list.d/tokumx.list
+RUN  apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
+RUN echo "deb http://repo.percona.com/apt "$(lsb_release -sc)" main" | sudo tee /etc/apt/sources.list.d/percona.list
 RUN apt-get update
-RUN apt-get install -y tokumx
-RUN sed -i'' -e '/logpath/d' /etc/tokumx.conf
+RUN apt-get install -y percona-server-mongodb
+RUN sed -i'' -e '/logpath/d' /etc/mongod.conf
 RUN rm -rf /var/lib/apt/lists/*
 
 # Define mountable directories.
